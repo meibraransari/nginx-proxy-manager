@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2024-12-07T08:38:54+05:30
+Updated: 2024-12-07T08:41:54+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manger Deployment using Docker Run & Docker Compose
@@ -36,7 +36,7 @@ Official Documentation: https://nginxproxymanager.com/
 #### 1. Using Docker run command
 
 ```
-docker run -itd --name=c_nginx_proxy_manager --restart=always -p 80:80 -p 81:81 -p 443:443 -v $(pwd)/npm/data:/data -v $(pwd)/npm/letsencrypt:/etc/letsencrypt jc21/nginx-proxy-manager:latest
+docker run -itd --name=c_nginx_proxy_manager --restart=always -p 80:80 -p 81:81 -p 443:443 -v $(pwd)/nginx-proxy-manager/data:/data -v $(pwd)/nginx-proxy-manager/letsencrypt:/etc/letsencrypt jc21/nginx-proxy-manager:latest
 ```
 #### 2. Using Docker Compose
 ##### Create compose file
