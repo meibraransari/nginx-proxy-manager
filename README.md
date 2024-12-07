@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2024-12-07T08:41:54+05:30
+Updated: 2024-12-07T08:44:33+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manger Deployment using Docker Run & Docker Compose
@@ -74,7 +74,7 @@ services:
 
 ##### Run container
 ```
-docker compose-up -d
+docker-compose up -d
 ```
 
 ##### Access NPM Server
