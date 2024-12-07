@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2024-12-07T08:23:08+05:30
+Updated: 2024-12-07T08:24:14+05:30
 ---
 # Nginx Proxy Manger Deployment using Docker Run & Docker Compose
 
@@ -8,7 +8,7 @@ Updated: 2024-12-07T08:23:08+05:30
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/meibraransari/nginx-proxy-manager/blob/main/assets/npm.png">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/meibraransari/nginx-proxy-manager/blob/main/assets/npm.png">
-    <img src="https://github.com/meibraransari/nginx-proxy-manager/blob/main/assets/npm.png" width="168" height="270" alt="NPM">
+    <img src="https://github.com/meibraransari/nginx-proxy-manager/blob/main/assets/npm.png" width="270" height="270" alt="NPM">
   </picture>
     <br>
     <strong>Nginx Proxy Manager</strong>
