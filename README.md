@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-01-29T09:24:54+05:30
+Updated: 2025-01-29T09:32:44+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Deployment using Docker Run & Docker Compose
@@ -27,7 +27,7 @@ Official Documentation: https://nginxproxymanager.com/
 
 -->
 ## 🎬 Video Demonstration
-[![Watch on Youtube](https://youtu.be/rxmEFm7EPck?si=cfql7YODAwm1pEJd)](https://www.youtube.com/playlist?list=PL5Afhqcc17s2UCcuEyFnTMHbVkxl8EG_7)
+[![Watch on Youtube](https://i.ytimg.com/vi/rxmEFm7EPck/maxresdefault.jpg)](https://www.youtube.com/playlist?list=PL5Afhqcc17s2UCcuEyFnTMHbVkxl8EG_7)
 
 ### **Prerequisites**  
 - Basic understanding of Docker.
