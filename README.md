@@ -1,9 +1,9 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2024-12-07T08:44:33+05:30
+Updated: 2025-01-29T09:17:54+05:30
 Maintainer: Ibrar Ansari
 ---
-# Nginx Proxy Manger Deployment using Docker Run & Docker Compose
+# Nginx Proxy Manager Deployment using Docker Run & Docker Compose
 
 <p align="center">
   <picture>
