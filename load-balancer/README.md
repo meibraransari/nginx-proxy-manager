@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T07:10:34+05:30
+Updated: 2025-04-08T07:12:46+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -21,7 +21,7 @@ Maintainer: Ibrar Ansari
 
 ### Configuration Guide
 
-#### Step 1. Add upstream in http.conf file
+### Step 1. Add upstream in http.conf file
 ###### Inspect Nginx Proxy Manager Mount Path
 
 ```
@@ -69,7 +69,7 @@ For more information, see the [Upstream](../assets/upstream.md) file.
 ##### Load Balancing Algorithm
 For more information, see the [LB-Algorithm](../assets/load-balancing-algorithm.gif) file.
 
-#### Steps 2. Include upstream file path in nginx.conf
+### Steps 2. Include upstream file path in nginx.conf
 ##### Check and add http.conf file path in nginx.conf if not present
 ```
 docker exec $CONATINER cat /etc/nginx/nginx.conf
@@ -95,7 +95,7 @@ exit
 
 
 
-#### Steps 3. Add domain in NPM
+### Steps 3. Add domain in NPM
 
 ##### Add domain in Nginx proxy manager
 In my case I am adding demo domain like "alb.devopsinaction.lab" in nginx proxy manager
@@ -108,7 +108,7 @@ Forward Hostname / IP*: 127.0.0.1 #no-use-of-it-in-lb-case
 
 Forward Port *:  80 #no-use-of-it-in-lb-case
 
-#### Steps 4. Identify domain vhost config and point domain to backend
+### Steps 4. Identify domain vhost config and point domain to backend
 
 ##### Find domain file name 
 ```
