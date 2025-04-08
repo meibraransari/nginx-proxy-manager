@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T07:24:08+05:30
+Updated: 2025-04-08T07:27:11+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -20,6 +20,9 @@ Maintainer: Ibrar Ansari
 [![Watch on Youtube](https://i.ytimg.com/vi/rxmEFm7EPck/maxresdefault.jpg)](https://www.youtube.com/playlist?list=PL5Afhqcc17s2UCcuEyFnTMHbVkxl8EG_7)
 
 ### Configuration Guide
+
+###### We leverage of custom-nginx-configurations (Included at the end of the main http block)
+https://nginxproxymanager.com/advanced-config/#custom-nginx-configurations
 
 ### Step 1. Add upstream in http.conf file
 ###### Inspect Nginx Proxy Manager Mount Path
