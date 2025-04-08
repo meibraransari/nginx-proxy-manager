@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T07:19:54+05:30
+Updated: 2025-04-08T07:20:21+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -82,7 +82,7 @@ apt install nano -y
 nano /etc/nginx/nginx.conf
 ```
 Note:- There is no mount of "nginx.conf" to host that's why we are editing in container.
-##### Include custom backend config file in http block in the last
+##### Include custom backend config file in **http** block in the last
 ```
 include /data/nginx/custom/http[.]conf
 ```
