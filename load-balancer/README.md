@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T06:59:22+05:30
+Updated: 2025-04-08T07:02:33+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -159,6 +159,15 @@ location / {
 > "proxy_pass $forward_scheme://$server:$port$request_uri;" 
 > to 
 > "proxy_pass http://backend;"
+
+ℹ️ **Info**:
+**In this case NPM workflow will be like:**
+
+Proxy host --> Domain --> Skipped(Forward Hostname / IP+ Forward Port ) --> Custom config --> Backend(upstream)
+
+
+
+  
 
 
 
