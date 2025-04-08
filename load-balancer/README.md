@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T06:48:28+05:30
+Updated: 2025-04-08T06:49:04+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -97,10 +97,15 @@ exit
 
 ##### Add domain in Nginx proxy manager
 In my case I am adding demo domain like "alb.devopsinaction.lab" in nginx proxy manager
+
 NPM > Host > Proxy Host > Add Proxy Host
+
 Domain: alb.devopsinaction.lab
+
 Forward Hostname / IP*: 127.0.0.1 #no-use-of-it-in-lb-case
+
 Forward Port *:  80 #no-use-of-it-in-lb-case
+
 
 
 
