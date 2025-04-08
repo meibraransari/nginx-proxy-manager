@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T07:20:44+05:30
+Updated: 2025-04-08T07:24:08+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -26,10 +26,10 @@ Maintainer: Ibrar Ansari
 
 ```
 CONATINER=npm
-docker exec $CONATINER pwd
 docker inspect $CONATINER | grep -i -A 17 "Mounts"
 ```
 ###### Create Custom Directory
+On above we got mounted path as "/root/npm/nginx-proxy-manager/data/" so create directory on that path.
 ```
 mkdir -p /root/npm/nginx-proxy-manager/data/nginx/custom
 ls /root/npm/nginx-proxy-manager/data/nginx/custom
@@ -59,15 +59,12 @@ upstream backend {
 
 ###### Verify upstream backend
 ```
-docker exec $CONATINER ls -lash /data/nginx/
-docker exec $CONATINER ls -lash /data/nginx/custom/
 docker exec $CONATINER cat /data/nginx/custom/http.conf
 ```
-##### Upstream Examples:
-For more information, see the [Upstream](../assets/upstream.md) file.
-
 ##### Load Balancing Algorithm
 For more information, see the [LB-Algorithm](../assets/load-balancing-algorithm.gif) file.
+##### Upstream Examples:
+For more information, see the [Upstream](../assets/upstream.md) file.
 
 ### Steps 2. Include upstream file path in nginx.conf
 ##### Check and add http.conf file path in nginx.conf if not present
