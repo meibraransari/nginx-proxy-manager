@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T07:02:33+05:30
+Updated: 2025-04-08T07:10:34+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -63,9 +63,11 @@ docker exec $CONATINER ls -lash /data/nginx/
 docker exec $CONATINER ls -lash /data/nginx/custom/
 docker exec $CONATINER cat /data/nginx/custom/http.conf
 ```
-##### Other upstream Examples:
+##### Upstream Examples:
 For more information, see the [Upstream](../assets/upstream.md) file.
 
+##### Load Balancing Algorithm
+For more information, see the [LB-Algorithm](../assets/load-balancing-algorithm.gif) file.
 
 #### Steps 2. Include upstream file path in nginx.conf
 ##### Check and add http.conf file path in nginx.conf if not present
@@ -161,13 +163,14 @@ location / {
 > "proxy_pass http://backend;"
 
 ℹ️ **Info**:
+This will essentially remove the configuration of your endpoint as a reverse proxy (removes the proxy configuration line) and adds only your custom config. 
+
 **In this case NPM workflow will be like:**
 
-Proxy host --> Domain --> Skipped(Forward Hostname / IP+ Forward Port ) --> Custom config --> Backend(upstream)
+Proxy host --> Domain(alb.devopsinaction.lab) --> Skipped(Forward Hostname / IP+ Forward Port ) --> Custom config --> Backend(upstream)
 
-
-
-  
+##### Add SSL (If required)
+NPM > Host > Proxy Host > Edit Proxy Host > SSL > Select SSL > Save.
 
 
 
