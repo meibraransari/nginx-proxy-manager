@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T07:29:07+05:30
+Updated: 2025-04-08T07:31:14+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -133,7 +133,7 @@ cat /root/npm/nginx-proxy-manager/data/nginx/proxy_host/22.conf
 ```
 docker exec $CONATINER cat /etc/nginx/conf.d/include/proxy.conf
 ```
----
+
 Output:
 ```
 add_header       X-Served-By $host;
