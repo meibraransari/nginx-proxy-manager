@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T06:36:41+05:30
+Updated: 2025-04-08T06:48:28+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -57,55 +57,52 @@ upstream backend {
 # You can add multiple backend with custom name here as shown above....
 ```
 
+###### Verify upstream backend
+```
+docker exec $CONATINER ls -lash /data/nginx/
+docker exec $CONATINER ls -lash /data/nginx/custom/
+docker exec $CONATINER cat /data/nginx/custom/http.conf
+```
 ##### Other upstream Examples:
 For more information, see the [Upstream](../assets/upstream.md) file.
 
 
-#### 2. Using Docker Compose
-##### Create compose file
+#### Steps 2. Include upstream file path in nginx.conf
+##### Check and add http.conf file path in nginx.conf if not present
 ```
-nano compose.yml
-```
-
-```
-services:
-  npm:
-    image: jc21/nginx-proxy-manager:latest
-    container_name: npm
-    hostname: npm
-    restart: unless-stopped
-    environment:
-      - DISABLE_IPV6 = 'true'
-      - TZ=TZ=Asia/Kolkata
-      - PUID=1000 # see https://nginxproxymanager.com/advanced-config/
-      - PGID=1000 # see https://nginxproxymanager.com/advanced-config/
-    ports:
-      - 80:80/tcp # HTTP
-      - 443:443/tcp # HTTPS
-      - 81:81/tcp # MGMT UI, do not expose publicly
-    dns:
-      - 8.8.8.8
-      - 8.8.4.4
-    healthcheck:
-      test: ["CMD", "/bin/check-health"]
-      interval: 30s
-      timeout: 3s
-    volumes:
-      - ./nginx-proxy-manager/data:/data
-      - ./nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+docker exec $CONATINER cat /etc/nginx/nginx.conf
 ```
 
-##### Run container
+##### If not present then add 
 ```
-docker-compose up -d
+docker exec -it $CONATINER /bin/bash
+apt update
+apt install nano -y
+nano /etc/nginx/nginx.conf
 ```
 
-##### Access NPM Server
+##### Include custom backend config file in http block in the last
 ```
-http://your_ip_or_FQDN:81
-admin@example.com
-changeme
+include /data/nginx/custom/http[.]conf
 ```
+
+##### Exit from the container
+```
+exit
+```
+
+
+
+#### Steps 3. Add domain in NPM
+
+##### Add domain in Nginx proxy manager
+In my case I am adding demo domain like "alb.devopsinaction.lab" in nginx proxy manager
+NPM > Host > Proxy Host > Add Proxy Host
+Domain: alb.devopsinaction.lab
+Forward Hostname / IP*: 127.0.0.1 #no-use-of-it-in-lb-case
+Forward Port *:  80 #no-use-of-it-in-lb-case
+
+
 
 
 ---
