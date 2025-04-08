@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T06:34:01+05:30
+Updated: 2025-04-08T06:36:41+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -58,7 +58,7 @@ upstream backend {
 ```
 
 ##### Other upstream Examples:
-For more information, see the [Upstream](../asstes/upstream.md) file.
+For more information, see the [Upstream](../assets/upstream.md) file.
 
 
 #### 2. Using Docker Compose
