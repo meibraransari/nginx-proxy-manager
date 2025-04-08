@@ -1,13 +1,13 @@
 ---
 Created: 2025-04-08T06:30:16+05:30
-Updated: 2025-04-08T06:31:59+05:30
+Updated: 2025-04-08T06:37:27+05:30
 ---
 #### Other Upstream Examples (Load balancing methods)
 ```
 # Other examples
 upstream backend {
-    server 192.168.192.221:7000 primary;
-    server 192.168.192.221:3020 backup; # or whatever is your config
+    server 192.168.1.221:7000 primary;
+    server 192.168.1.221:3020 backup; # or whatever is your config
 }
 
 upstream backend_servers {
