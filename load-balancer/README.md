@@ -1,6 +1,6 @@
 ---
 Created: 2024-12-07T07:47:47+05:30
-Updated: 2025-04-08T06:49:04+05:30
+Updated: 2025-04-08T06:59:22+05:30
 Maintainer: Ibrar Ansari
 ---
 # Nginx Proxy Manager Load-Balancer Setup Guide
@@ -106,11 +106,62 @@ Forward Hostname / IP*: 127.0.0.1 #no-use-of-it-in-lb-case
 
 Forward Port *:  80 #no-use-of-it-in-lb-case
 
+#### Steps 4. Identify domain vhost config and point domain to backend
 
+##### Find domain file name 
+```
+docker inspect $CONATINER | grep -i -A 17 "Mounts"
+grep -ir "alb.devopsinaction.lab" /root/npm/nginx-proxy-manager/data/nginx/
+```
 
+##### Change in domain and verify block
+NPM > Host > Proxy Host > Edit Proxy Host > Advance > Custom Nginx Configuration
 
+Add #check-block
+###### Verify block
+```
+cat /root/npm/nginx-proxy-manager/data/nginx/proxy_host/22.conf
+```
 
+##### Copy Proxy of Nginx Proxy Manager 
+```
+docker exec $CONATINER cat /etc/nginx/conf.d/include/proxy.conf
+```
 ---
+Output:
+```
+add_header       X-Served-By $host;
+proxy_set_header Host $host;
+proxy_set_header X-Forwarded-Scheme $scheme;
+proxy_set_header X-Forwarded-Proto  $scheme;
+proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+proxy_set_header X-Real-IP          $remote_addr;
+proxy_pass       $forward_scheme://$server:$port$request_uri;
+```
+
+##### Set config using above proxy host config
+NPM > Host > Proxy Host > Edit Proxy Host > Advance > Custom Nginx Configuration
+
+```
+location / {
+    add_header       X-Served-By $host;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Scheme $scheme;
+    proxy_set_header X-Forwarded-Proto  $scheme;
+    proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP          $remote_addr;
+    proxy_pass http://backend;
+}
+```
+
+🔔 **Note**:
+> Replace above config to your backend as shown above.
+> "proxy_pass $forward_scheme://$server:$port$request_uri;" 
+> to 
+> "proxy_pass http://backend;"
+
+
+
 ### 💼 Connect with me 👇👇 😊
 
 - 🔥 [**Youtube**](https://www.youtube.com/@DevOpsinAction?sub_confirmation=1)
